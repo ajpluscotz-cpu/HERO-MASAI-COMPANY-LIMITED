@@ -822,3 +822,94 @@ header.site.scrolled {
 /* gallery item kama link */
 a.gallery-item { cursor: pointer; }
 a.gallery-item:hover .tag { background: var(--red); }
+
+/* =========================================================
+   ===========  PORTFOLIO PROJECT CARDS  ==================
+   ========================================================= */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.proj-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease;
+}
+.proj-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(12,34,64,0.16);
+}
+.proj-img {
+  position: relative;
+  display: block;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.proj-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.proj-card:hover .proj-img img { transform: scale(1.07); }
+.proj-num {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(12,34,64,0.3);
+}
+.proj-card:hover .proj-num { background: var(--red); }
+.proj-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+.proj-body h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.proj-body p {
+  color: var(--steel);
+  font-size: 0.92rem;
+  margin: 0 0 16px;
+  flex: 1;
+}
+.proj-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--steel);
+}
+.proj-tag {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.proj-tag.done { background: #e7eefc; color: var(--navy); }
+.proj-tag.complete { background: #e3f6e9; color: #1f9e4d; }
+
+@media (max-width: 880px) {
+  .proj-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 580px) {
+  .proj-grid { grid-template-columns: 1fr; }
+}
