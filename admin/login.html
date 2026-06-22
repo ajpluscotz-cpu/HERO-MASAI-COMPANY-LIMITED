@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMC Admin | Ingia</title>
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#16335c;--navy-dark:#0c2240;--red:#c8262f;--concrete:#eae7e0;--white:#fff;--ink:#20242b;--steel:#6b7280;--line:rgba(22,51,92,.18)}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Work Sans",sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(rgba(12,34,64,.92),rgba(12,34,64,.92)),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 44px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 44px),var(--navy)}
+  .card{background:var(--white);width:100%;max-width:380px;margin:20px;padding:36px 30px;border-radius:3px;position:relative}
+  .card::before,.card::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--navy)}
+  .card::before{top:-2px;left:-2px;border-right:none;border-bottom:none}
+  .card::after{bottom:-2px;right:-2px;border-left:none;border-top:none}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .brand img{height:46px}
+  .brand b{font-family:"Oswald",sans-serif;color:var(--navy);font-size:1.1rem;letter-spacing:.03em;line-height:1}
+  .brand small{display:block;font-family:"JetBrains Mono",monospace;font-size:.6rem;color:var(--steel);letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+  h1{font-family:"Oswald",sans-serif;text-transform:uppercase;color:var(--navy);font-size:1.3rem;margin:18px 0 4px}
+  p.sub{color:var(--steel);font-size:.9rem;margin:0 0 22px}
+  label{font-family:"JetBrains Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);display:block;margin-bottom:5px}
+  input{width:100%;border:1px solid var(--line);background:var(--concrete);padding:12px 14px;font-size:.95rem;border-radius:2px;margin-bottom:16px;font-family:inherit}
+  input:focus{outline:2px solid var(--navy);outline-offset:1px}
+  button{width:100%;border:none;background:var(--red);color:#fff;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem;padding:14px;border-radius:2px;cursor:pointer}
+  button:hover{background:var(--navy-dark)}
+  .err{color:var(--red);font-family:"JetBrains Mono",monospace;font-size:.78rem;min-height:1.1em;margin-bottom:10px}
+  .hint{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--steel);text-align:center}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <img src="../assets/logo.jpg" alt="HMC">
+      <span><b>HERO MASAI</b><small>Admin Panel</small></span>
+    </div>
+    <h1>Ingia</h1>
+    <p class="sub">Weka jina la mtumiaji na neno la siri.</p>
+    <form id="login-form">
+      <label for="user">Jina la Mtumiaji</label>
+      <input type="text" id="user" autocomplete="username" required>
+      <label for="pass">Neno la Siri</label>
+      <input type="password" id="pass" autocomplete="current-password" required>
+      <p class="err" id="err"></p>
+      <button type="submit">Ingia &rarr;</button>
+    </form>
+    <p class="hint">Chaguo-msingi: admin / hmc2026</p>
+  </div>
+
+<script>
+(function(){
+  // Anzisha akaunti chaguo-msingi kama haipo
+  var KEY="hmc_admin_account";
+  if(!localStorage.getItem(KEY)){
+    localStorage.setItem(KEY, JSON.stringify({user:"admin", pass:"hmc2026"}));
+  }
+  var form=document.getElementById("login-form");
+  var err=document.getElementById("err");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var acc=JSON.parse(localStorage.getItem(KEY));
+    var u=document.getElementById("user").value.trim();
+    var p=document.getElementById("pass").value;
+    if(u===acc.user && p===acc.pass){
+      sessionStorage.setItem("hmc_logged_in","1");
+      window.location.href="dashboard.html";
+    }else{
+      err.textContent="Jina au neno la siri si sahihi.";
+    }
+  });
+})();
+</script>
+</body>
+</html>

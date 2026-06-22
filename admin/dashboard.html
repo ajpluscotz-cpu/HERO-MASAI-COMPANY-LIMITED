@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMC Admin | Dashboard</title>
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-brand">
+      <img src="../assets/logo.jpg" alt="HMC">
+      <span><b>HERO MASAI</b><small>Admin</small></span>
+    </div>
+    <nav class="sb-nav" id="nav">
+      <button data-tab="dashboard" class="active">&#9632; <span>Dashboard</span></button>
+      <button data-tab="clients">&#128100; <span>Wateja</span></button>
+      <button data-tab="projects">&#127959; <span>Miradi</span></button>
+      <button data-tab="invoice">&#129534; <span>Invoice</span></button>
+      <button data-tab="quotation">&#128221; <span>Quotation</span></button>
+      <button data-tab="receipt">&#129534; <span>Receipt</span></button>
+      <button data-tab="expenses">&#128184; <span>Matumizi</span></button>
+      <button data-tab="reports">&#128202; <span>Ripoti</span></button>
+      <button data-tab="settings">&#9881; <span>Settings</span></button>
+    </nav>
+    <div class="sb-foot">
+      <button id="logout">&#128682; <span>Toka</span></button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <h1 id="page-title">Dashboard</h1>
+      <span class="who" id="who">HMC &middot; Dar es Salaam</span>
+    </div>
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section class="panel active" id="tab-dashboard">
+        <div class="stats">
+          <div class="stat"><div class="num" id="s-clients">0</div><div class="lbl">Wateja</div></div>
+          <div class="stat"><div class="num" id="s-projects">0</div><div class="lbl">Miradi</div></div>
+          <div class="stat"><div class="num" id="s-income">0</div><div class="lbl">Mapato (TZS)</div></div>
+          <div class="stat"><div class="num" id="s-expense">0</div><div class="lbl">Matumizi (TZS)</div></div>
+        </div>
+        <div class="box">
+          <h2>Nyaraka za Hivi Karibuni</h2>
+          <div id="recent-docs"><p class="empty">Bado hakuna nyaraka. Tengeneza invoice, quotation au receipt.</p></div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="panel" id="tab-clients">
+        <div class="grid2">
+          <div class="box">
+            <p class="eyebrow">Ongeza Mteja</p>
+            <h2>Mteja Mpya</h2>
+            <label>Jina</label><input id="c-name" placeholder="Jina la mteja / kampuni">
+            <label>Namba ya Simu</label><input id="c-phone" placeholder="0712 345 678">
+            <label>Barua pepe</label><input id="c-email" placeholder="(si lazima)">
+            <label>Anwani</label><input id="c-address" placeholder="Eneo / mtaa">
+            <button class="btn btn-primary" id="c-save">Hifadhi Mteja</button>
+          </div>
+          <div class="box">
+            <h2>Orodha ya Wateja</h2>
+            <div id="clients-list"><p class="empty">Bado hakuna wateja.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="panel" id="tab-projects">
+        <div class="grid2">
+          <div class="box">
+            <p class="eyebrow">Ongeza Mradi</p>
+            <h2>Mradi Mpya</h2>
+            <label>Jina la Mradi</label><input id="p-title" placeholder="Mfano: Nyumba ya Bw. Juma">
+            <label>Mteja</label><select id="p-client"></select>
+            <label>Eneo</label><input id="p-location" placeholder="Mtaa / eneo">
+            <div class="row">
+              <div><label>Bajeti (TZS)</label><input id="p-budget" type="number" placeholder="0"></div>
+              <div><label>Hali</label><select id="p-status">
+                <option>Inasubiri</option><option>Inaendelea</option><option>Imekamilika</option><option>Imesimama</option>
+              </select></div>
+            </div>
+            <label>Maelezo</label><textarea id="p-note" rows="2" placeholder="(si lazima)"></textarea>
+            <button class="btn btn-primary" id="p-save">Hifadhi Mradi</button>
+          </div>
+          <div class="box">
+            <h2>Orodha ya Miradi</h2>
+            <div id="projects-list"><p class="empty">Bado hakuna miradi.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCUMENT PANELS (invoice / quotation / receipt share builder) -->
+      <section class="panel" id="tab-invoice"></section>
+      <section class="panel" id="tab-quotation"></section>
+      <section class="panel" id="tab-receipt"></section>
+
+      <!-- EXPENSES -->
+      <section class="panel" id="tab-expenses">
+        <div class="grid2">
+          <div class="box">
+            <p class="eyebrow">Ongeza Matumizi</p>
+            <h2>Tumizi Mpya</h2>
+            <label>Tarehe</label><input id="e-date" type="date">
+            <label>Aina</label><select id="e-cat">
+              <option>Vifaa vya Ujenzi</option><option>Vibarua/Mishahara</option><option>Usafiri</option>
+              <option>Mafuta</option><option>Vifaa vya Ofisi</option><option>Nyingine</option>
+            </select>
+            <label>Maelezo</label><input id="e-desc" placeholder="Mfano: Mifuko 50 ya saruji">
+            <label>Kiasi (TZS)</label><input id="e-amount" type="number" placeholder="0">
+            <button class="btn btn-primary" id="e-save">Hifadhi Tumizi</button>
+          </div>
+          <div class="box">
+            <h2>Orodha ya Matumizi</h2>
+            <div class="totals" style="border:none;padding:0;margin-bottom:12px">
+              <div class="line grand"><span>Jumla:</span><span id="e-total">TZS 0</span></div>
+            </div>
+            <div id="expenses-list"><p class="empty">Bado hakuna matumizi.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="panel" id="tab-reports">
+        <div class="box">
+          <h2>Muhtasari wa Fedha</h2>
+          <div class="stats" style="margin-bottom:0">
+            <div class="stat" style="border-top-color:var(--green)"><div class="num" id="r-income">0</div><div class="lbl">Mapato (Receipts)</div></div>
+            <div class="stat" style="border-top-color:var(--red)"><div class="num" id="r-expense">0</div><div class="lbl">Matumizi</div></div>
+            <div class="stat" style="border-top-color:var(--navy)"><div class="num" id="r-profit">0</div><div class="lbl">Faida</div></div>
+            <div class="stat"><div class="num" id="r-pending">0</div><div class="lbl">Invoice Hazijalipwa</div></div>
+          </div>
+        </div>
+        <div class="box" style="margin-top:24px">
+          <h2>Mgawanyo wa Matumizi</h2>
+          <div id="reports-cats"><p class="empty">Bado hakuna data ya matumizi.</p></div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="panel" id="tab-settings">
+        <div class="grid2">
+          <div class="box">
+            <p class="eyebrow">Taarifa za Kampuni</p>
+            <h2>Settings</h2>
+            <label>Jina la Kampuni</label><input id="set-name">
+            <label>Namba ya Simu</label><input id="set-phone">
+            <label>Barua pepe</label><input id="set-email">
+            <label>Anwani</label><input id="set-address">
+            <div class="row">
+              <div><label>TIN (si lazima)</label><input id="set-tin"></div>
+              <div><label>Sarafu</label><input id="set-currency" value="TZS"></div>
+            </div>
+            <label>Akaunti ya Benki (huonekana kwenye invoice)</label><input id="set-bank" placeholder="Mfano: NMB - 1234567890">
+            <div class="row">
+              <div><label>Tumia VAT?</label><select id="set-vat"><option value="no">Hapana</option><option value="yes">Ndiyo</option></select></div>
+              <div><label>Kiwango cha VAT (%)</label><input id="set-vatrate" type="number" value="18"></div>
+            </div>
+            <label>Ujumbe wa Chini (footer)</label><input id="set-footer" placeholder="Asante kwa kufanya kazi nasi.">
+            <button class="btn btn-primary" id="set-save">Hifadhi Settings</button>
+          </div>
+          <div class="box">
+            <p class="eyebrow">Usalama & Data</p>
+            <h2>Akaunti</h2>
+            <label>Jina la Mtumiaji</label><input id="acc-user">
+            <label>Neno Jipya la Siri</label><input id="acc-pass" type="text" placeholder="Acha wazi kama hutabadilisha">
+            <button class="btn btn-navy" id="acc-save">Sasisha Akaunti</button>
+
+            <hr style="border:none;border-top:1px dashed var(--line);margin:24px 0">
+            <h2>Hifadhi & Rejesha Data</h2>
+            <p class="note">Data zote zimehifadhiwa kwenye browser hii. Pakua nakala mara kwa mara ili usipoteze taarifa.</p>
+            <button class="btn btn-outline btn-sm" id="data-export">&#11015; Pakua Backup</button>
+            <label style="margin-top:14px">Rejesha kutoka faili</label>
+            <input id="data-import" type="file" accept="application/json">
+            <hr style="border:none;border-top:1px dashed var(--line);margin:20px 0">
+            <button class="btn btn-sm" style="background:#fdeceb;color:var(--red);border:1px solid var(--red)" id="data-clear">&#9888; Futa Data Zote</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- PRINT AREA -->
+<div id="print-area"></div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

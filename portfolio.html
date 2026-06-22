@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Hero Masai Company Ltd</title>
+<meta name="description" content="Tazama baadhi ya miradi ya ujenzi iliyofanywa na Hero Masai Company Ltd, Dar es Salaam.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="Hero Masai Company Ltd logo">
+      <span class="brand-text">HERO MASAI<small>Company Ltd</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html">Nyumbani</a>
+      <a href="huduma.html">Huduma</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="wasiliana.html">Wasiliana</a>
+    </nav>
+    <a href="tel:+255754769757" class="nav-cta">Piga 0754 769 757</a>
+    <button class="menu-toggle" aria-label="Fungua menyu">&#9776;</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Miradi yetu inaongea zaidi ya maneno.</h1>
+    <p>Hapa chini ni baadhi ya kazi tulizofanya. Picha hizi ni nafasi za mfano — badilisha na picha za miradi yako halisi.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 01 &middot; Ujenzi wa Nyumba</span>
+      </div>
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 02 &middot; Michoro ya Jengo</span>
+      </div>
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 03 &middot; Paving Blocks</span>
+      </div>
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 04 &middot; Geti la Chuma</span>
+      </div>
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 05 &middot; Marekebisho ya Nyumba</span>
+      </div>
+      <div class="gallery-item reveal">
+        <div class="placeholder-pattern"></div>
+        <span class="tag">Mradi 06 &middot; Ujenzi wa Biashara</span>
+      </div>
+
+    </div>
+
+    <!--
+      JINSI YA KUWEKA PICHA ZAKO HALISI:
+      1. Weka faili za picha kwenye folda ya assets/ (mfano: assets/mradi-01.jpg)
+      2. Kwenye <div class="gallery-item reveal"> badilisha:
+           <div class="placeholder-pattern"></div>
+         na:
+           <img src="assets/mradi-01.jpg" alt="Maelezo ya mradi">
+    -->
+
+    <p style="margin-top:36px;color:var(--steel);font-family:var(--mono);font-size:0.82rem">
+      &#9998; Tip: Badilisha picha hizi na picha halisi za miradi yako kwa kuziweka kwenye folda ya <code>assets/</code>.
+    </p>
+  </div>
+</section>
+
+<section class="bg-concrete">
+  <div class="wrap blueprint-frame" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+    <div>
+      <p class="eyebrow">Tayari Kuanza Mradi Wako?</p>
+      <h2 style="margin-bottom:0">Wasiliana nasi leo kwa quotation.</h2>
+    </div>
+    <a href="wasiliana.html" class="btn btn-primary">Wasiliana Nasi &rarr;</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px">
+          <img src="assets/logo.jpg" alt="HMC logo" style="height:38px">
+          <span class="brand-text" style="color:white">HERO MASAI<small style="color:rgba(255,255,255,0.6)">Company Ltd</small></span>
+        </div>
+        <p style="max-width:280px">Kampuni ya ujenzi inayotoa huduma kamili kuanzia michoro hadi umaliziaji, Dar es Salaam, Tanzania.</p>
+      </div>
+      <div>
+        <h4>Kurasa</h4>
+        <p><a href="index.html">Nyumbani</a></p>
+        <p><a href="huduma.html">Huduma</a></p>
+        <p><a href="portfolio.html">Portfolio</a></p>
+        <p><a href="wasiliana.html">Wasiliana</a></p>
+      </div>
+      <div>
+        <h4>Mawasiliano</h4>
+        <p><a href="tel:+255754769757">0754 769 757</a></p>
+        <p>Dar es Salaam, Tanzania</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Hero Masai Company Ltd. Haki zote zimehifadhiwa.</span>
+      <span>HMC &middot; Fikiri Kimataifa, Jenga Kitanzania &middot; <a href="admin/login.html" style="color:rgba(255,255,255,0.4)">Admin</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/255754769757" class="fab-whatsapp" aria-label="WhatsApp" target="_blank">&#128222;</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
