@@ -33,7 +33,7 @@
 <section class="hero">
   <div class="wrap hero-inner">
     <div>
-      <p class="eyebrow">HMC &middot; Dar es Salaam, Tanzania</p>
+      <p class="eyebrow">HMC &middot; Tunajenga Ndoto Zako kwa Uhakika</p>
       <h1>
         <span class="wordline"><span>Tunajenga</span></span>
         <span class="wordline"><span>ndoto yako &mdash;</span></span>
@@ -54,24 +54,25 @@
     <!-- Animated blueprint house -->
     <div class="hero-visual">
       <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- ground -->
         <line class="draw" x1="40" y1="330" x2="360" y2="330" stroke="#16335c" stroke-width="2"/>
-        <!-- house outline -->
         <path class="draw s2" d="M90 330 V170 L200 90 L310 170 V330" stroke="#16335c" stroke-width="3" stroke-linejoin="round"/>
-        <!-- roof line -->
         <path class="draw s2" d="M70 184 L200 84 L330 184" stroke="#c8262f" stroke-width="3" stroke-linecap="round"/>
-        <!-- door -->
         <path class="draw s3" d="M178 330 V250 H222 V330" stroke="#16335c" stroke-width="2.5"/>
-        <!-- windows -->
         <rect class="draw s3" x="115" y="225" width="42" height="42" stroke="#16335c" stroke-width="2"/>
         <rect class="draw s3" x="243" y="225" width="42" height="42" stroke="#16335c" stroke-width="2"/>
-        <!-- crane -->
-        <path class="draw s2" d="M300 330 V60 H210" stroke="#16335c" stroke-width="2.5"/>
-        <line class="draw s3" x1="300" y1="60" x2="345" y2="95" stroke="#16335c" stroke-width="2"/>
-        <line class="draw s3" x1="240" y1="60" x2="240" y2="110" stroke="#c8262f" stroke-width="2"/>
-        <!-- fill accents -->
+        <rect class="win-light" x="119" y="229" width="34" height="34" fill="rgba(200,38,47,0)"/>
+        <rect class="win-light w2" x="247" y="229" width="34" height="34" fill="rgba(200,38,47,0)"/>
+        <rect class="win-light w3" x="182" y="254" width="36" height="40" fill="rgba(200,38,47,0)"/>
+        <g class="crane-arm">
+          <path class="draw s2" d="M300 330 V60 H210" stroke="#16335c" stroke-width="2.5"/>
+          <line class="draw s3" x1="300" y1="60" x2="345" y2="95" stroke="#16335c" stroke-width="2"/>
+          <line class="draw s3" x1="240" y1="60" x2="240" y2="110" stroke="#c8262f" stroke-width="2"/>
+          <rect x="232" y="108" width="16" height="12" fill="#c8262f" class="hv-fill"/>
+        </g>
         <circle class="hv-fill" cx="200" cy="90" r="5" fill="#c8262f"/>
-        <rect class="hv-fill" x="178" y="250" width="44" height="80" fill="#16335c" opacity="0.06"/>
+        <circle class="spark" cx="150" cy="320" r="3" fill="#c8262f"/>
+        <circle class="spark s2" cx="250" cy="320" r="2.5" fill="#16335c"/>
+        <circle class="spark s3" cx="200" cy="320" r="3" fill="#c8262f"/>
       </svg>
       <div class="hv-badge tl"><span class="accent">&#9632;</span> Mchoro &rarr; Ujenzi<b>Hatua kwa Hatua</b></div>
       <div class="hv-badge br"><b><span class="count" data-to="6">0</span> Huduma</b>Chini ya paa moja</div>
@@ -92,7 +93,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Huduma Zetu</p>
-      <h2>Kila kinachohitajika kujenga, chini ya paa moja</h2>
+      <h2 class="shimmer">Kila kinachohitajika kujenga, chini ya paa moja</h2>
       <p>Kuanzia mchoro wa kwanza hadi geti la mwisho, timu yetu inakusaidia hatua kwa hatua.</p>
     </div>
     <div class="services-grid">
@@ -131,10 +132,12 @@
       <p style="color:var(--steel)">Kila mradi unaanza na kipimo sahihi na mpango wazi &mdash; ndiyo maana kazi zetu zinadumu na kufikia matarajio ya mteja.</p>
       <a href="portfolio.html" class="btn btn-outline" style="margin-top:18px">Tazama Miradi Yetu</a>
     </div>
-    <div class="stat-list reveal d2">
-      <div class="stat-row"><strong>01</strong><div><strong style="color:var(--navy)">Mipango Sahihi</strong><br><span style="color:var(--steel);font-size:0.92rem">Michoro kabla ujenzi kuanza.</span></div></div>
-      <div class="stat-row"><strong>02</strong><div><strong style="color:var(--navy)">Vifaa vya Ubora</strong><br><span style="color:var(--steel);font-size:0.92rem">Vinavyokidhi viwango vya ujenzi.</span></div></div>
-      <div class="stat-row"><strong>03</strong><div><strong style="color:var(--navy)">Muda Sahihi</strong><br><span style="color:var(--steel);font-size:0.92rem">Tunakamilisha kwa wakati uliopangwa.</span></div></div>
+    <div class="reveal d2" style="position:relative">
+      <img src="assets/mradi-4.jpg" alt="Jengo la kisasa la Hero Masai" style="width:100%;border-radius:4px;box-shadow:0 18px 40px rgba(12,34,64,.18)">
+      <div style="position:absolute;bottom:-18px;left:-18px;background:var(--navy);color:#fff;padding:16px 22px;border-radius:4px;box-shadow:0 12px 30px rgba(12,34,64,.25)">
+        <strong style="font-family:var(--display);font-size:1.5rem;display:block;line-height:1">Miradi Halisi</strong>
+        <span style="font-family:var(--mono);font-size:.72rem;color:rgba(255,255,255,.7)">Kazi inayoonekana</span>
+      </div>
     </div>
   </div>
 </section>
@@ -157,6 +160,7 @@
     <p class="eyebrow" style="justify-content:center;color:#fff">Tuko Tayari</p>
     <h2>Una mradi wa ujenzi? Tuambie leo.</h2>
     <p>Pata quotation bure na ushauri wa kitaalamu kabla hujaanza.</p>
+    <p style="font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;color:var(--red);font-size:1.1rem;margin-bottom:18px">&ldquo;Tunajenga Leo, kwa Kesho Bora&rdquo;</p>
     <a href="wasiliana.html" class="btn btn-primary">Wasiliana Nasi &rarr;</a>
   </div>
 </section>
@@ -186,7 +190,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="year"></span> Hero Masai Company Ltd. Haki zote zimehifadhiwa.</span>
-      <span>HMC &middot; Fikiri Kimataifa, Jenga Kitanzania &middot; <a href="admin/login.html" style="color:rgba(255,255,255,0.4)">Admin</a></span>
+      <span>HMC &middot; Tunajenga Ndoto Zako kwa Uhakika &middot; <a href="admin/login.html" style="color:rgba(255,255,255,0.4)">Admin</a></span>
     </div>
   </div>
 </footer>

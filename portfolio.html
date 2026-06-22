@@ -30,10 +30,35 @@
 </header>
 
 <section class="page-hero">
-  <div class="wrap">
-    <p class="eyebrow">Portfolio</p>
-    <h1>Miradi yetu inaongea zaidi ya maneno.</h1>
-    <p>Hapa chini ni baadhi ya kazi tulizofanya. Picha hizi ni nafasi za mfano — badilisha na picha za miradi yako halisi.</p>
+  <div class="wrap ph-grid">
+    <div class="ph-text">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Miradi yetu inaongea zaidi ya maneno.</h1>
+      <p>Baadhi ya miradi halisi tuliyofanya &mdash; msingi, nguzo, ujenzi na umaliziaji.</p>
+    </div>
+    <div class="ph-visual">
+      <svg viewBox="0 0 360 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line class="ln" x1="10" y1="270" x2="350" y2="270" stroke="#fff" stroke-width="2"/>
+        <!-- majengo ya jiji -->
+        <rect class="ln" x="40"  y="150" width="50" height="120" stroke="#fff" stroke-width="2"/>
+        <rect class="ln b" x="100" y="90"  width="56" height="180" stroke="#c8262f" stroke-width="2.5"/>
+        <rect class="ln b" x="166" y="170" width="44" height="100" stroke="#fff" stroke-width="2"/>
+        <rect class="ln c" x="220" y="120" width="52" height="150" stroke="#fff" stroke-width="2"/>
+        <rect class="ln c" x="282" y="190" width="42" height="80"  stroke="#fff" stroke-width="2"/>
+        <!-- madirisha yanayometa -->
+        <g fill="#c8262f">
+          <rect class="twinkle"    x="52"  y="165" width="10" height="10"/>
+          <rect class="twinkle t3" x="70"  y="185" width="10" height="10"/>
+          <rect class="twinkle t2" x="114" y="110" width="12" height="12"/>
+          <rect class="twinkle t4" x="134" y="140" width="12" height="12"/>
+          <rect class="twinkle t5" x="114" y="170" width="12" height="12"/>
+          <rect class="twinkle t2" x="178" y="190" width="9"  height="9"/>
+          <rect class="twinkle t4" x="234" y="140" width="11" height="11"/>
+          <rect class="twinkle t3" x="252" y="170" width="11" height="11"/>
+          <rect class="twinkle t5" x="294" y="210" width="9"  height="9"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -41,45 +66,34 @@
   <div class="wrap">
     <div class="gallery">
 
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
+      <a class="gallery-item reveal" href="assets/mradi-2.jpg" target="_blank">
+        <img src="assets/mradi-2.jpg" alt="Ujenzi wa nyumba - nguzo na kuta">
         <span class="tag">Mradi 01 &middot; Ujenzi wa Nyumba</span>
-      </div>
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
-        <span class="tag">Mradi 02 &middot; Michoro ya Jengo</span>
-      </div>
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
-        <span class="tag">Mradi 03 &middot; Paving Blocks</span>
-      </div>
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
-        <span class="tag">Mradi 04 &middot; Geti la Chuma</span>
-      </div>
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
-        <span class="tag">Mradi 05 &middot; Marekebisho ya Nyumba</span>
-      </div>
-      <div class="gallery-item reveal">
-        <div class="placeholder-pattern"></div>
-        <span class="tag">Mradi 06 &middot; Ujenzi wa Biashara</span>
-      </div>
+      </a>
+      <a class="gallery-item reveal d1" href="assets/mradi-1.jpg" target="_blank">
+        <img src="assets/mradi-1.jpg" alt="Ujenzi wa sakafu - mafundi kazini">
+        <span class="tag">Mradi 02 &middot; Sakafu &amp; Nguzo</span>
+      </a>
+      <a class="gallery-item reveal d2" href="assets/mradi-3.jpg" target="_blank">
+        <img src="assets/mradi-3.jpg" alt="Msingi na nguzo za chuma">
+        <span class="tag">Mradi 03 &middot; Msingi &amp; Nguzo</span>
+      </a>
+      <a class="gallery-item reveal" href="assets/mradi-4.jpg" target="_blank">
+        <img src="assets/mradi-4.jpg" alt="Jengo la kisasa lililokamilika">
+        <span class="tag">Mradi 04 &middot; Jengo la Kisasa</span>
+      </a>
+      <a class="gallery-item reveal d1" href="assets/mradi-5.jpg" target="_blank">
+        <img src="assets/mradi-5.jpg" alt="Uchimbaji wa msingi - timu ya mafundi">
+        <span class="tag">Mradi 05 &middot; Msingi &amp; Uchimbaji</span>
+      </a>
+      <a class="gallery-item reveal d2" href="assets/mradi-3.jpg" target="_blank">
+        <img src="assets/mradi-3.jpg" alt="Eneo la ujenzi">
+        <span class="tag">Mradi 06 &middot; Ujenzi Unaoendelea</span>
+      </a>
 
     </div>
 
-    <!--
-      JINSI YA KUWEKA PICHA ZAKO HALISI:
-      1. Weka faili za picha kwenye folda ya assets/ (mfano: assets/mradi-01.jpg)
-      2. Kwenye <div class="gallery-item reveal"> badilisha:
-           <div class="placeholder-pattern"></div>
-         na:
-           <img src="assets/mradi-01.jpg" alt="Maelezo ya mradi">
-    -->
-
-    <p style="margin-top:36px;color:var(--steel);font-family:var(--mono);font-size:0.82rem">
-      &#9998; Tip: Badilisha picha hizi na picha halisi za miradi yako kwa kuziweka kwenye folda ya <code>assets/</code>.
-    </p>
+    
   </div>
 </section>
 
@@ -118,7 +132,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="year"></span> Hero Masai Company Ltd. Haki zote zimehifadhiwa.</span>
-      <span>HMC &middot; Fikiri Kimataifa, Jenga Kitanzania &middot; <a href="admin/login.html" style="color:rgba(255,255,255,0.4)">Admin</a></span>
+      <span>HMC &middot; Tunajenga Ndoto Zako kwa Uhakika &middot; <a href="admin/login.html" style="color:rgba(255,255,255,0.4)">Admin</a></span>
     </div>
   </div>
 </footer>
