@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
 <title>HMC Admin | Ingia</title>
 <link rel="icon" href="../assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,39 +40,111 @@
       <img src="../assets/logo.jpg" alt="HMC">
       <span><b>HERO MASAI</b><small>Admin Panel</small></span>
     </div>
-    <h1>Ingia</h1>
-    <p class="sub">Weka jina la mtumiaji na neno la siri.</p>
+    <h1 id="login-title">Ingia</h1>
+    <p class="sub" id="login-sub">Weka jina la mtumiaji na neno la siri.</p>
     <form id="login-form">
       <label for="user">Jina la Mtumiaji</label>
       <input type="text" id="user" autocomplete="username" required>
       <label for="pass">Neno la Siri</label>
       <input type="password" id="pass" autocomplete="current-password" required>
+      <div id="confirm-wrap" style="display:none">
+        <label for="pass2">Rudia Neno la Siri</label>
+        <input type="password" id="pass2" autocomplete="new-password">
+      </div>
       <p class="err" id="err"></p>
-      <button type="submit">Ingia &rarr;</button>
+      <button type="submit" id="login-btn">Ingia &rarr;</button>
     </form>
-    <p class="hint">Chaguo-msingi: admin / hmc2026</p>
   </div>
 
 <script>
 (function(){
-  // Anzisha akaunti chaguo-msingi kama haipo
+  // Akaunti ya admin: nenosiri halihifadhiwi kama lilivyo — linahifadhiwa kama hash (PBKDF2-SHA256)
   var KEY="hmc_admin_account";
-  if(!localStorage.getItem(KEY)){
-    localStorage.setItem(KEY, JSON.stringify({user:"admin", pass:"hmc2026"}));
-  }
+  var ITER=150000;
   var form=document.getElementById("login-form");
   var err=document.getElementById("err");
+  var title=document.getElementById("login-title");
+  var sub=document.getElementById("login-sub");
+  var btn=document.getElementById("login-btn");
+  var confirmWrap=document.getElementById("confirm-wrap");
+
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; } }
+  function b64(buf){ return btoa(String.fromCharCode.apply(null, new Uint8Array(buf))); }
+  function hashPass(pass, saltB64, iter){
+    var salt=Uint8Array.from(atob(saltB64), function(c){ return c.charCodeAt(0); });
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveBits"])
+      .then(function(k){ return crypto.subtle.deriveBits({name:"PBKDF2", salt:salt, iterations:iter, hash:"SHA-256"}, k, 256); })
+      .then(b64);
+  }
+  function newSalt(){ var a=new Uint8Array(16); crypto.getRandomValues(a); return b64(a); }
+  window.hmcHashPass=hashPass; window.hmcNewSalt=newSalt;
+
+  // Hali: "setup" (hakuna akaunti), "migrate" (akaunti ya zamani yenye nenosiri wazi), "login"
+  var acc=load();
+  var mode = !acc ? "setup" : (acc.pass != null ? "migrate" : "login");
+  var verifiedOld=false;
+
+  function setMode(m){
+    mode=m; err.textContent="";
+    if(m==="setup"){
+      title.textContent="Weka Akaunti";
+      sub.textContent="Mara ya kwanza: chagua jina la mtumiaji na neno la siri imara (herufi 10+).";
+      confirmWrap.style.display="block"; btn.innerHTML="Hifadhi &rarr;";
+    } else if(m==="newpass"){
+      title.textContent="Badilisha Neno la Siri";
+      sub.textContent="Kwa usalama, weka neno la siri jipya imara (herufi 10+) kabla ya kuendelea.";
+      document.getElementById("pass").value="";
+      confirmWrap.style.display="block"; btn.innerHTML="Hifadhi &rarr;";
+    } else {
+      title.textContent="Ingia"; sub.textContent="Weka jina la mtumiaji na neno la siri.";
+      confirmWrap.style.display="none"; btn.innerHTML="Ingia &rarr;";
+    }
+  }
+  setMode(mode==="setup" ? "setup" : "login");
+
+  // Zuia kubahatisha: subiri baada ya makosa 5
+  function locked(){ var t=Number(sessionStorage.getItem("hmc_lock_until")||0); return Date.now()<t; }
+  function fail(){
+    var n=Number(sessionStorage.getItem("hmc_fails")||0)+1; sessionStorage.setItem("hmc_fails", n);
+    if(n>=5){ sessionStorage.setItem("hmc_lock_until", Date.now()+5*60*1000); sessionStorage.setItem("hmc_fails",0); }
+    err.textContent="Jina au neno la siri si sahihi.";
+  }
+
+  function saveNew(user, pass){
+    var salt=newSalt();
+    return hashPass(pass, salt, ITER).then(function(h){
+      localStorage.setItem(KEY, JSON.stringify({user:user, salt:salt, hash:h, iter:ITER}));
+    });
+  }
+  function enter(){ sessionStorage.setItem("hmc_logged_in","1"); window.location.href="dashboard.html"; }
+
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    var acc=JSON.parse(localStorage.getItem(KEY));
+    if(!window.crypto || !crypto.subtle){ err.textContent="Tumia browser ya kisasa kupitia https."; return; }
     var u=document.getElementById("user").value.trim();
     var p=document.getElementById("pass").value;
-    if(u===acc.user && p===acc.pass){
-      sessionStorage.setItem("hmc_logged_in","1");
-      window.location.href="dashboard.html";
-    }else{
-      err.textContent="Jina au neno la siri si sahihi.";
+    var p2=document.getElementById("pass2").value;
+
+    if(mode==="setup" || mode==="newpass"){
+      if(!u){ err.textContent="Weka jina la mtumiaji."; return; }
+      if(p.length<10){ err.textContent="Neno la siri liwe na herufi 10 au zaidi."; return; }
+      if(p!==p2){ err.textContent="Maneno ya siri hayalingani."; return; }
+      saveNew(u,p).then(enter);
+      return;
     }
+    if(locked()){ err.textContent="Majaribio mengi. Subiri dakika 5."; return; }
+    acc=load();
+    if(!acc){ setMode("setup"); return; }
+    if(acc.pass != null){
+      // Akaunti ya zamani: thibitisha kwa nenosiri la zamani kisha lazimisha jipya
+      if(u===acc.user && p===acc.pass){ sessionStorage.setItem("hmc_fails",0); setMode("newpass"); }
+      else fail();
+      return;
+    }
+    hashPass(p, acc.salt, acc.iter||ITER).then(function(h){
+      if(u===acc.user && h===acc.hash){ sessionStorage.setItem("hmc_fails",0); enter(); }
+      else fail();
+    });
   });
 })();
 </script>
