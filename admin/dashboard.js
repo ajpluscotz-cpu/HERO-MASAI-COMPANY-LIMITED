@@ -487,8 +487,8 @@ function loadSettingsForm() {
   document.getElementById("set-vat").value = s.vat;
   document.getElementById("set-vatrate").value = s.vatrate;
   document.getElementById("set-footer").value = s.footer;
-  var acc = load(DB.account, { user: "admin", pass: "hmc2026" });
-  document.getElementById("acc-user").value = acc.user;
+  var acc = load(DB.account, { user: "" });
+  document.getElementById("acc-user").value = acc.user || "";
 }
 document.getElementById("set-save").addEventListener("click", function () {
   save(DB.settings, {
@@ -507,19 +507,29 @@ document.getElementById("set-save").addEventListener("click", function () {
   document.getElementById("who").textContent = getSettings().name;
 });
 document.getElementById("acc-save").addEventListener("click", function () {
-  var acc = load(DB.account, { user: "admin", pass: "hmc2026" });
-  acc.user = document.getElementById("acc-user").value.trim() || acc.user;
+  // Nenosiri linahifadhiwa kama hash (PBKDF2) — kamwe si maandishi wazi
+  var acc = load(DB.account, {});
+  var user = document.getElementById("acc-user").value.trim() || acc.user;
   var np = document.getElementById("acc-pass").value;
-  if (np) acc.pass = np;
-  save(DB.account, acc);
-  document.getElementById("acc-pass").value = "";
-  alert("Akaunti imesasishwa.");
+  if (!np) { acc.user = user; save(DB.account, acc); alert("Akaunti imesasishwa."); return; }
+  if (np.length < 10) { alert("Neno la siri liwe na herufi 10 au zaidi."); return; }
+  var a = new Uint8Array(16); crypto.getRandomValues(a);
+  var salt = btoa(String.fromCharCode.apply(null, a));
+  var iter = 150000;
+  crypto.subtle.importKey("raw", new TextEncoder().encode(np), "PBKDF2", false, ["deriveBits"])
+    .then(function (k) { return crypto.subtle.deriveBits({ name: "PBKDF2", salt: a, iterations: iter, hash: "SHA-256" }, k, 256); })
+    .then(function (bits) {
+      var hash = btoa(String.fromCharCode.apply(null, new Uint8Array(bits)));
+      save(DB.account, { user: user, salt: salt, hash: hash, iter: iter });
+      document.getElementById("acc-pass").value = "";
+      alert("Akaunti imesasishwa.");
+    });
 });
 
 // Backup / Restore
 document.getElementById("data-export").addEventListener("click", function () {
   var dump = {};
-  Object.keys(DB).forEach(function (k) { dump[DB[k]] = load(DB[k], null); });
+  Object.keys(DB).forEach(function (k) { if (k !== "account") dump[DB[k]] = load(DB[k], null); });
   var blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
   var a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
@@ -532,7 +542,8 @@ document.getElementById("data-import").addEventListener("change", function (e) {
   r.onload = function () {
     try {
       var data = JSON.parse(r.result);
-      Object.keys(data).forEach(function (k) { if (data[k] != null) localStorage.setItem(k, JSON.stringify(data[k])); });
+      var allowed = [DB.settings, DB.clients, DB.projects, DB.docs, DB.expenses];
+      Object.keys(data).forEach(function (k) { if (allowed.indexOf(k) !== -1 && data[k] != null) localStorage.setItem(k, JSON.stringify(data[k])); });
       alert("Data imerejeshwa. Ukurasa utaanza upya.");
       location.reload();
     } catch (err) { alert("Faili si sahihi."); }
