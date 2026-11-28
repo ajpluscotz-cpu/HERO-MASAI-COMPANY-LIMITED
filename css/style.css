@@ -1190,3 +1190,57 @@ footer.site .foot-grid p { margin: 0 0 8px; }
   .svc-num { font-size: 2.4rem; }
   .office-card { padding: 24px; }
 }
+
+/* =========================================================
+   ======  USAJILI + SEKTA (taarifa zilizothibitishwa na HMC)  ======
+   ========================================================= */
+.creds { padding: 0; background: var(--navy-dark); border-top: 1px solid rgba(255,255,255,0.08); }
+.creds-row { display: grid; grid-template-columns: repeat(5, 1fr); }
+.creds-row > div {
+  padding: 22px 18px; color: #fff; font-family: var(--display); font-size: 1.05rem; letter-spacing: 0.03em;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.creds-row > div:first-child { padding-left: 0; }
+.creds-row > div:last-child { border-right: none; }
+.creds-row small {
+  display: block; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 4px;
+}
+
+.sectors { padding: 88px 0; }
+.sector-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 2px solid var(--navy); }
+.sector {
+  padding: 28px 22px 30px; border-right: 1px solid var(--line); position: relative;
+  display: flex; flex-direction: column; transition: background .25s ease;
+}
+.sector:last-child { border-right: none; }
+.sector:hover { background: var(--white); }
+.bg-concrete .sector:hover { background: rgba(255,255,255,0.7); }
+.sector-no { font-family: var(--mono); font-size: 0.75rem; color: var(--red); margin-bottom: 18px; }
+.sector h3 { font-size: 1.15rem; margin-bottom: 2px; }
+.sector-en { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel); margin: 0 0 12px; }
+.sector p { color: var(--steel); font-size: 0.92rem; margin: 0 0 16px; }
+.sector-badge {
+  margin-top: auto; align-self: flex-start; font-family: var(--mono); font-size: 0.66rem;
+  letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--navy);
+  padding: 5px 9px; border-radius: 2px;
+}
+
+@media (max-width: 1080px) {
+  .creds-row { grid-template-columns: repeat(3, 1fr); }
+  .creds-row > div:nth-child(3) { border-right: none; }
+  .creds-row > div:nth-child(4) { padding-left: 0; }
+  .creds-row > div:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .sector-grid { grid-template-columns: repeat(3, 1fr); }
+  .sector:nth-child(3) { border-right: none; }
+  .sector:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .creds-row { grid-template-columns: 1fr 1fr; }
+  .creds-row > div { padding: 16px 12px 16px 0; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.95rem; }
+  .creds-row > div:last-child { border-bottom: none; }
+  .sectors { padding: 64px 0; }
+  .sector-grid { grid-template-columns: 1fr; }
+  .sector { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0; }
+  .sector:last-child { border-bottom: none; }
+}
