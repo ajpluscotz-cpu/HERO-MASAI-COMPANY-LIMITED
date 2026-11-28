@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<!-- ================= 1. NAVIGATION ================= -->
 <header class="site">
   <div class="nav">
     <a href="index.html" class="brand">
@@ -31,108 +32,133 @@
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="wrap ph-grid">
-    <div class="ph-text">
+<!-- ================= PAGE HERO (sehemu inayoshirikiwa na kurasa za ndani) ================= -->
+<section class="hx hx-page">
+  <div class="wrap hx-grid">
+    <div class="hx-text">
       <p class="eyebrow">Huduma Zetu</p>
-      <h1>Kila hatua ya ujenzi, kwa weledi mmoja.</h1>
-      <p>Tunahudumia miradi midogo na mikubwa &mdash; kutoka mchoro wa kwanza hadi geti la mwisho.</p>
+      <h1><span class="wordline"><span>Kila hatua ya ujenzi, kwa weledi mmoja.</span></span></h1>
+      <p class="hx-lead">Tunahudumia miradi midogo na mikubwa &mdash; kutoka mchoro wa kwanza hadi geti la mwisho.</p>
+      <div class="cta-row"><a href="wasiliana.html#contact-form" class="btn btn-primary">Omba Quotation &rarr;</a><a href="#huduma-zote" class="btn btn-ghost">Tazama Huduma</a></div>
+      <div class="hx-facts"><div><strong class="count" data-to="6">0</strong>Huduma kuu</div><div><strong>Mchoro &rarr; Ufunguo</strong>Huduma kamili</div></div>
     </div>
-    <div class="ph-visual">
-      <svg viewBox="0 0 360 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line class="ln" x1="20" y1="270" x2="340" y2="270" stroke="#fff" stroke-width="2"/>
-        <!-- jengo la ghorofa linalojengwa -->
-        <rect class="grow g1" x="70" y="170" width="120" height="100" fill="none" stroke="#fff" stroke-width="2"/>
-        <rect class="grow g2" x="70" y="110" width="120" height="60" fill="none" stroke="#fff" stroke-width="2"/>
-        <rect class="grow g3" x="70" y="60"  width="120" height="50" fill="none" stroke="#c8262f" stroke-width="2.5"/>
-        <!-- madirisha -->
-        <rect class="win-light"    x="88"  y="185" width="22" height="22" fill="rgba(200,38,47,0)"/>
-        <rect class="win-light w2" x="150" y="185" width="22" height="22" fill="rgba(200,38,47,0)"/>
-        <rect class="win-light w3" x="88"  y="125" width="22" height="22" fill="rgba(200,38,47,0)"/>
-        <rect class="win-light w4" x="150" y="125" width="22" height="22" fill="rgba(200,38,47,0)"/>
-        <!-- crane -->
-        <g class="crane-arm">
-          <path class="ln c" d="M250 270 V40 H150" stroke="#fff" stroke-width="2.5"/>
-          <line class="ln c" x1="250" y1="40" x2="290" y2="72" stroke="#fff" stroke-width="2"/>
-          <line class="ln c" x1="185" y1="40" x2="185" y2="80" stroke="#c8262f" stroke-width="2"/>
-          <rect x="177" y="78" width="16" height="11" fill="#c8262f"/>
-        </g>
-        <circle class="spark" cx="120" cy="260" r="3" fill="#c8262f"/>
-        <circle class="spark s2" cx="200" cy="260" r="2.5" fill="#fff"/>
-      </svg>
+    <figure class="hx-visual">
+      <img src="assets/mradi-1.jpg" alt="Mafundi wa HMC wakiweka nondo za sakafu" width="1000" height="750">
+      <figcaption>&#128205; Mradi unaoendelea &middot; Dar es Salaam</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= ORODHA YA HUDUMA ================= -->
+<section id="huduma-zote">
+  <div class="wrap svc-layout">
+    <aside class="svc-side">
+      <p class="eyebrow">Huduma 6</p>
+      <nav><a href="#michoro"><span>01</span>Michoro ya Majengo</a><a href="#ujenzi"><span>02</span>Ujenzi wa Nyumba Aina Zote</a><a href="#ushauri"><span>03</span>Ushauri wa Ujenzi</a><a href="#ukarabati"><span>04</span>Marekebisho ya Nyumba</a><a href="#paving"><span>05</span>Kuweka Paving Blocks</a><a href="#geti"><span>06</span>Geti Aina Mbalimbali</a></nav>
+    </aside>
+    <div class="svc-list">
+      <article class="svc-row reveal" id="michoro">
+        <span class="svc-num">01</span>
+        <div>
+          <h2>Michoro ya Majengo</h2>
+          <p>Tunachora ramani za majengo zinazokidhi mahitaji yako na masharti ya vibali, kuanzia nyumba za makazi hadi majengo ya biashara. Mchoro sahihi ni msingi wa ujenzi wenye nguvu na gharama inayodhibitiwa.</p>
+          <ul class="svc-tags"><li>Ramani</li><li>Vibali</li><li>Makazi</li><li>Biashara</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Michoro%20ya%20Majengo#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
+      <article class="svc-row reveal" id="ujenzi">
+        <span class="svc-num">02</span>
+        <div>
+          <h2>Ujenzi wa Nyumba Aina Zote</h2>
+          <p>Tunajenga nyumba za ghorofa moja na nyingi, nyumba za kupangisha, na majengo ya biashara &mdash; kuanzia msingi hadi umaliziaji, kwa kuzingatia ubora na muda uliopangwa.</p>
+          <ul class="svc-tags"><li>Msingi</li><li>Ghorofa</li><li>Kupangisha</li><li>Umaliziaji</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Ujenzi%20wa%20Nyumba#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
+      <article class="svc-row reveal" id="ushauri">
+        <span class="svc-num">03</span>
+        <div>
+          <h2>Ushauri wa Ujenzi</h2>
+          <p>Una eneo na unataka kujenga lakini hujui kuanzia wapi? Tunakushauri kuhusu mpango, bajeti, vifaa na hatua za ujenzi kabla na wakati wa kazi.</p>
+          <ul class="svc-tags"><li>Mpango</li><li>Bajeti</li><li>Vifaa</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Ushauri%20wa%20Ujenzi#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
+      <article class="svc-row reveal" id="ukarabati">
+        <span class="svc-num">04</span>
+        <div>
+          <h2>Marekebisho ya Nyumba</h2>
+          <p>Tunafanya ukarabati, upanuzi na uboreshaji wa nyumba zilizopo &mdash; kuanzia mabadiliko madogo hadi miradi mikubwa ya kuongeza vyumba au ghorofa.</p>
+          <ul class="svc-tags"><li>Ukarabati</li><li>Upanuzi</li><li>Kuongeza ghorofa</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Marekebisho%20ya%20Nyumba#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
+      <article class="svc-row reveal" id="paving">
+        <span class="svc-num">05</span>
+        <div>
+          <h2>Kuweka Paving Blocks</h2>
+          <p>Tunaweka paving blocks kwa njia za kutembea, maegesho ya magari na viwanja vya nyumba na biashara, kwa umaliziaji safi na unaodumu.</p>
+          <ul class="svc-tags"><li>Njia</li><li>Maegesho</li><li>Viwanja</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Paving%20Blocks#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
+      <article class="svc-row reveal" id="geti">
+        <span class="svc-num">06</span>
+        <div>
+          <h2>Geti Aina Mbalimbali</h2>
+          <p>Tunatengeneza na kufunga geti za chuma kwa miundo na ukubwa tofauti, kulingana na mahitaji ya usalama na muonekano wa eneo lako.</p>
+          <ul class="svc-tags"><li>Chuma</li><li>Miundo tofauti</li><li>Ufungaji</li></ul>
+          <a class="text-link" href="wasiliana.html?huduma=Geti#contact-form">Omba quotation ya huduma hii &rarr;</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ================= 6. HOW WE DELIVER ================= -->
+<section class="process bg-concrete" id="mbinu">
   <div class="wrap">
-    <div class="services-grid" style="grid-template-columns:1fr;gap:0">
-
-      <div class="service-card" style="border-top:none;border-bottom:1px dashed var(--line);padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">01</span>
-        <div>
-          <h3 style="font-size:1.3rem">Michoro ya Majengo</h3>
-          <p style="color:var(--steel);max-width:620px">Tunachora ramani za majengo zinazokidhi mahitaji yako na masharti ya vibali, kuanzia nyumba za makazi hadi majengo ya biashara. Mchoro sahihi ni msingi wa ujenzi wenye nguvu na gharama inayodhibitiwa.</p>
-        </div>
-      </div>
-
-      <div class="service-card" style="border-top:none;border-bottom:1px dashed var(--line);padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">02</span>
-        <div>
-          <h3 style="font-size:1.3rem">Ujenzi wa Nyumba Aina Zote</h3>
-          <p style="color:var(--steel);max-width:620px">Tunajenga nyumba za ghorofa moja na nyingi, nyumba za kupangisha, na majengo ya biashara — kuanzia msingi hadi umaliziaji, kwa kuzingatia ubora na muda uliopangwa.</p>
-        </div>
-      </div>
-
-      <div class="service-card" style="border-top:none;border-bottom:1px dashed var(--line);padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">03</span>
-        <div>
-          <h3 style="font-size:1.3rem">Ushauri wa Ujenzi</h3>
-          <p style="color:var(--steel);max-width:620px">Una eneo na unataka kujenga lakini hujui kuanzia wapi? Tunakushauri kuhusu mpango, bajeti, vifaa na hatua za ujenzi kabla na wakati wa kazi.</p>
-        </div>
-      </div>
-
-      <div class="service-card" style="border-top:none;border-bottom:1px dashed var(--line);padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">04</span>
-        <div>
-          <h3 style="font-size:1.3rem">Marekebisho ya Nyumba</h3>
-          <p style="color:var(--steel);max-width:620px">Tunafanya ukarabati, upanuzi na uboreshaji wa nyumba zilizopo — kuanzia mabadiliko madogo hadi miradi mikubwa ya kuongeza vyumba au ghorofa.</p>
-        </div>
-      </div>
-
-      <div class="service-card" style="border-top:none;border-bottom:1px dashed var(--line);padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">05</span>
-        <div>
-          <h3 style="font-size:1.3rem">Kuweka Paving Blocks</h3>
-          <p style="color:var(--steel);max-width:620px">Tunaweka paving blocks kwa njia za kutembea, maegesho ya magari na viwanja vya nyumba na biashara, kwa umaliziaji safi na unaodumu.</p>
-        </div>
-      </div>
-
-      <div class="service-card" style="border-top:none;padding:36px 0;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start">
-        <span class="num" style="font-size:2.2rem;color:var(--navy)">06</span>
-        <div>
-          <h3 style="font-size:1.3rem">Geti Aina Mbalimbali</h3>
-          <p style="color:var(--steel);max-width:620px">Tunatengeneza na kufunga geti za chuma kwa miundo na ukubwa tofauti, kulingana na mahitaji ya usalama na muonekano wa eneo lako.</p>
-        </div>
-      </div>
-
+    <div class="section-head reveal">
+      <p class="eyebrow">Jinsi Tunavyofanya Kazi</p>
+      <h2>Njia rahisi, hatua nne</h2>
+      <p>Mteja anajua kinachofuata katika kila hatua, kuanzia mazungumzo ya kwanza hadi makabidhiano.</p>
+    </div>
+    <div class="process-track">
+      <div class="step reveal d1"><div class="dot">1</div><h3>Mazungumzo</h3><p>Tunasikiliza mahitaji na bajeti yako.</p></div>
+      <div class="step reveal d2"><div class="dot">2</div><h3>Mchoro &amp; Quotation</h3><p>Tunaandaa ramani na gharama wazi.</p></div>
+      <div class="step reveal d3"><div class="dot">3</div><h3>Ujenzi</h3><p>Tunatekeleza kwa ubora na muda.</p></div>
+      <div class="step reveal d4"><div class="dot">4</div><h3>Makabidhiano</h3><p>Tunakukabidhi kazi iliyokamilika.</p></div>
     </div>
   </div>
 </section>
 
-<section class="bg-concrete">
-  <div class="wrap blueprint-frame" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
-    <div>
-      <p class="eyebrow">Huduma Unayoihitaji Haipo Hapa?</p>
-      <h2 style="margin-bottom:0">Tupigie, tutakusaidia kupanga mradi wako.</h2>
+<!-- ================= 9. PROJECT INQUIRY CTA ================= -->
+<section class="cta-band">
+  <div class="wrap reveal">
+    <p class="eyebrow" style="justify-content:center;color:#fff">Tuko Tayari</p>
+    <h2>Una mradi wa ujenzi? Tuambie leo.</h2>
+    <p>Pata quotation bure na ushauri wa kitaalamu kabla hujaanza.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a href="wasiliana.html#contact-form" class="btn btn-primary">Omba Quotation &rarr;</a>
+      <a href="https://wa.me/255754769757" class="btn btn-ghost" target="_blank" rel="noopener">Tuma WhatsApp</a>
     </div>
-    <a href="wasiliana.html" class="btn btn-primary">Wasiliana Nasi &rarr;</a>
   </div>
 </section>
 
+<!-- ================= 10. CONTACT INFORMATION ================= -->
+<section class="contact-strip">
+  <div class="wrap contact-strip-grid">
+    <a href="tel:+255754769757" class="cs-item reveal d1"><span class="cs-ico">&#128222;</span><span><small>Simu</small>0754 769 757</span></a>
+    <a href="https://wa.me/255754769757" target="_blank" rel="noopener" class="cs-item reveal d2"><span class="cs-ico">&#128172;</span><span><small>WhatsApp</small>0754 769 757</span></a>
+    <div class="cs-item reveal d3"><span class="cs-ico">&#128205;</span><span><small>Eneo</small>Dar es Salaam, Tanzania</span></div>
+    <div class="cs-item reveal d4"><span class="cs-ico">&#128338;</span><span><small>Saa za Kazi</small>Jum &ndash; Jmos, 8:00 &ndash; 18:00</span></div>
+  </div>
+</section>
+
+<!-- ================= 11. FOOTER ================= -->
 <footer class="site">
   <div class="wrap">
-    <div class="foot-grid">
+    <div class="foot-grid foot-4">
       <div>
         <div class="brand" style="margin-bottom:14px">
           <img src="assets/logo.jpg" alt="HMC logo" style="height:38px">
@@ -145,11 +171,20 @@
         <p><a href="index.html">Nyumbani</a></p>
         <p><a href="huduma.html">Huduma</a></p>
         <p><a href="portfolio.html">Miradi</a></p>
+        <p><a href="index.html#kuhusu">Kuhusu</a></p>
         <p><a href="wasiliana.html">Wasiliana</a></p>
+      </div>
+      <div>
+        <h4>Huduma</h4>
+        <p><a href="huduma.html">Michoro ya Majengo</a></p>
+        <p><a href="huduma.html">Ujenzi wa Nyumba</a></p>
+        <p><a href="huduma.html">Ukarabati</a></p>
+        <p><a href="huduma.html">Paving &amp; Geti</a></p>
       </div>
       <div>
         <h4>Mawasiliano</h4>
         <p><a href="tel:+255754769757">0754 769 757</a></p>
+        <p><a href="https://wa.me/255754769757" target="_blank" rel="noopener">WhatsApp</a></p>
         <p>Dar es Salaam, Tanzania</p>
       </div>
     </div>
@@ -162,6 +197,7 @@
 
 <a href="https://wa.me/255754769757" class="fab-whatsapp" aria-label="WhatsApp" target="_blank">&#128222;</a>
 
+<script src="js/projects.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

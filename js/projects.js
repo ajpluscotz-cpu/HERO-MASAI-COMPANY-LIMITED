@@ -110,6 +110,18 @@ var HMC_PROJECTS = [
     targets[t].innerHTML = list.map(function (p, i) { return card(p, i, mode); }).join("");
   }
 
+  // Takwimu za miradi (portfolio): zinahesabiwa kutoka kwenye data
+  var stats = {
+    total: HMC_PROJECTS.length,
+    active: HMC_PROJECTS.filter(function (p) { return p.status === "Inaendelea"; }).length,
+    done: HMC_PROJECTS.filter(function (p) { return p.status === "Imekamilika"; }).length
+  };
+  var statEls = document.querySelectorAll("[data-project-stat]");
+  for (var k = 0; k < statEls.length; k++) {
+    var key = statEls[k].getAttribute("data-project-stat");
+    if (key in stats) statEls[k].textContent = stats[key];
+  }
+
   // Ukifika kutoka "Tazama Mradi" (portfolio.html#id): nenda kwenye kadi na uiangazie
   if (location.hash.length > 1) {
     var el = document.getElementById(location.hash.slice(1));

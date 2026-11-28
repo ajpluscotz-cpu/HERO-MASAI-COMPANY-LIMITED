@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== Contact form -> WhatsApp =====
   var form = document.querySelector("#contact-form");
   if (form) {
+    // Chagua huduma yenyewe ukifika kutoka huduma.html (?huduma=...)
+    var wanted = new URLSearchParams(location.search).get("huduma");
+    if (wanted && form.service) {
+      for (var i = 0; i < form.service.options.length; i++) {
+        if (form.service.options[i].text === wanted) { form.service.selectedIndex = i; break; }
+      }
+    }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = form.name.value.trim();
